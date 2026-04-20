@@ -1,0 +1,389 @@
+============================================================
+ yaqumo-shot-graph — proof-of-run bundle
+============================================================
+UTC timestamp: Mon Apr 20 12:07:08 UTC 2026
+Local time:    Mon Apr 20 21:07:08 JST 2026
+Host:          Linux debian 6.12.73+deb13-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.12.73-1 (2026-02-17) x86_64 GNU/Linux
+CPU:           AMD Ryzen 7 9800X3D 8-Core Processor
+Memory:        46Gi
+Python:        Python 3.10.16
+Python path:   /home/neme/Documents/atomq ctl/yaqumo-shot-graph/.venv/bin/python
+
+============================================================
+ 1. INSTALLED PACKAGES (relevant subset)
+============================================================
+matplotlib                3.10.8
+mypy                      1.20.1
+mypy_extensions           1.1.0
+networkx                  3.4.2
+numpy                     2.2.6
+pulser                    1.7.2
+pulser-core               1.7.2
+pulser-pasqal             0.22.0
+pulser-simulation         1.7.2
+pydantic                  2.13.2
+pydantic_core             2.46.2
+pytest                    9.0.3
+ruff                      0.15.11
+types-networkx            3.6.1.20260408
+
+============================================================
+ 2. FILE INVENTORY — src/ line counts + hashes
+============================================================
+   10 lines  sha256:89d48e46ae5dc157  src/yaqumo_shot_graph/__init__.py
+   21 lines  sha256:ab2687da80411ef6  src/yaqumo_shot_graph/backends/__init__.py
+  245 lines  sha256:26443ecbc8f0b65c  src/yaqumo_shot_graph/backends/ad9910.py
+   98 lines  sha256:86f3d83f41bfbd6f  src/yaqumo_shot_graph/backends/base.py
+   98 lines  sha256:fccf66635f897b93  src/yaqumo_shot_graph/backends/camera_mock.py
+  110 lines  sha256:fcdddc0214a6f9c7  src/yaqumo_shot_graph/backends/nidaqmx_adapter.py
+   84 lines  sha256:c0aa6485ada35e73  src/yaqumo_shot_graph/backends/optical_delay.py
+   93 lines  sha256:3be42db445444857  src/yaqumo_shot_graph/backends/slm_mock.py
+    9 lines  sha256:2d87a8f138491d04  src/yaqumo_shot_graph/export/__init__.py
+  196 lines  sha256:af12fdc4d6b2f972  src/yaqumo_shot_graph/export/openqasm3.py
+  107 lines  sha256:4945b356dc70f0c1  src/yaqumo_shot_graph/export/pulser.py
+   22 lines  sha256:e3e79829adb80f42  src/yaqumo_shot_graph/ir/__init__.py
+   93 lines  sha256:24a6b6b2691529e8  src/yaqumo_shot_graph/ir/graph.py
+  239 lines  sha256:1c97fcd8494aa8c7  src/yaqumo_shot_graph/ir/nodes.py
+   59 lines  sha256:feecc5ed58dbfd83  src/yaqumo_shot_graph/ir/types.py
+    4 lines  sha256:7f8f15b1f4432b8e  src/yaqumo_shot_graph/scheduler/__init__.py
+  137 lines  sha256:b3472b3e5f6dd583  src/yaqumo_shot_graph/scheduler/compiler.py
+    4 lines  sha256:5b4306d782d38762  src/yaqumo_shot_graph/sim/__init__.py
+  122 lines  sha256:b61d889d51390197  src/yaqumo_shot_graph/sim/feedback.py
+  137 lines  sha256:10c71ece80e813e7  src/yaqumo_shot_graph/sim/latency_budget.py
+
+============================================================
+ 3. FULL PYTEST VERBOSE — all 108 tests with duration
+============================================================
+============================= test session starts ==============================
+platform linux -- Python 3.10.16, pytest-9.0.3, pluggy-1.6.0 -- /home/neme/Documents/atomq ctl/yaqumo-shot-graph/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/neme/Documents/atomq ctl/yaqumo-shot-graph
+configfile: pyproject.toml
+plugins: requests-mock-1.12.1
+collecting ... collected 108 items
+
+tests/test_ad9910.py::test_freq_to_ftw_known_value PASSED                [  0%]
+tests/test_ad9910.py::test_freq_to_ftw_range_enforced PASSED             [  1%]
+tests/test_ad9910.py::test_amplitude_to_asf_extremes PASSED              [  2%]
+tests/test_ad9910.py::test_spi_transaction_to_wire_instruction_byte PASSED [  3%]
+tests/test_ad9910.py::test_spi_transaction_payload_roundtrip PASSED      [  4%]
+tests/test_ad9910.py::test_backend_emit_dds_set_profile PASSED           [  5%]
+tests/test_ad9910.py::test_backend_emit_gate_block PASSED                [  6%]
+tests/test_ad9910.py::test_backend_emit_aod_move_plan PASSED             [  7%]
+tests/test_ad9910.py::test_backend_rejects_unsupported_node PASSED       [  8%]
+tests/test_ad9910.py::test_backend_latency_profile_electronic PASSED     [  9%]
+tests/test_backends_base.py::test_backend_command_is_frozen_and_default_payload PASSED [ 10%]
+tests/test_backends_base.py::test_validate_support_uses_device_classes PASSED [ 11%]
+tests/test_backends_base.py::test_registry_registers_and_resolves_by_device_class PASSED [ 12%]
+tests/test_backends_base.py::test_registry_rejects_duplicate_backend_id PASSED [ 12%]
+tests/test_backends_base.py::test_registry_rejects_double_device_class_registration PASSED [ 13%]
+tests/test_backends_base.py::test_registry_keyerror_on_unknown_device PASSED [ 14%]
+tests/test_backends_base.py::test_registry_contains_operator PASSED      [ 15%]
+tests/test_backends_base.py::test_emit_yields_backend_commands PASSED    [ 16%]
+tests/test_backends_base.py::test_latency_profile_has_dominant_domain PASSED [ 17%]
+tests/test_camera_mock.py::test_construct_deterministic_with_seed PASSED [ 18%]
+tests/test_camera_mock.py::test_validate_support_camera_only PASSED      [ 19%]
+tests/test_camera_mock.py::test_emit_acquire_emccd PASSED                [ 20%]
+tests/test_camera_mock.py::test_emit_classify_occupancy PASSED           [ 21%]
+tests/test_camera_mock.py::test_emit_measure_ancilla PASSED              [ 22%]
+tests/test_camera_mock.py::test_simulate_frame_shape_and_fill PASSED     [ 23%]
+tests/test_camera_mock.py::test_latency_profile_feedback PASSED          [ 24%]
+tests/test_camera_mock.py::test_emit_rejects_unsupported PASSED          [ 25%]
+tests/test_compiler.py::test_default_registry_covers_all_device_classes PASSED [ 25%]
+tests/test_compiler.py::test_compile_dual_isotope_demo_groups_by_backend PASSED [ 26%]
+tests/test_compiler.py::test_compile_reaches_four_streams_with_optical_delay PASSED [ 27%]
+tests/test_compiler.py::test_every_command_traces_to_source_node PASSED  [ 28%]
+tests/test_compiler.py::test_topological_order_preserved_within_each_stream PASSED [ 29%]
+tests/test_compiler.py::test_custom_backend_overrides_default PASSED     [ 30%]
+tests/test_compiler.py::test_missing_backend_raises_value_error PASSED   [ 31%]
+tests/test_compiler.py::test_compile_with_explicit_default_registry_matches_implicit PASSED [ 32%]
+tests/test_compiler.py::test_command_payload_carries_timing_domain PASSED [ 33%]
+tests/test_examples.py::test_example_01_imports_and_runs PASSED          [ 34%]
+tests/test_examples.py::test_example_02_imports_and_runs PASSED          [ 35%]
+tests/test_examples.py::test_example_01_produces_feedback_table PASSED   [ 36%]
+tests/test_examples.py::test_example_01_produces_openqasm_output PASSED  [ 37%]
+tests/test_examples.py::test_example_02_hungarian_slower_at_large_n PASSED [ 37%]
+tests/test_feedback.py::test_deterministic_with_seed PASSED              [ 38%]
+tests/test_feedback.py::test_hungarian_grows_faster_than_sqrt_t_for_large_n PASSED [ 39%]
+tests/test_feedback.py::test_n_moves_reflects_vacancies PASSED           [ 40%]
+tests/test_feedback.py::test_total_ms_components_sum PASSED              [ 41%]
+tests/test_feedback.py::test_format_table_has_all_stages PASSED          [ 42%]
+tests/test_feedback.py::test_invalid_algorithm_raises PASSED             [ 43%]
+tests/test_feedback.py::test_invalid_n_sites_raises PASSED               [ 44%]
+tests/test_feedback.py::test_invalid_fill_fraction_raises PASSED         [ 45%]
+tests/test_feedback.py::test_fill_fraction_zero_yields_all_moves PASSED  [ 46%]
+tests/test_feedback.py::test_fill_fraction_one_yields_zero_moves PASSED  [ 47%]
+tests/test_ir.py::test_dual_isotope_graph_builds_and_validates PASSED    [ 48%]
+tests/test_ir.py::test_graph_rejects_duplicate_names PASSED              [ 49%]
+tests/test_ir.py::test_graph_rejects_unknown_predecessor PASSED          [ 50%]
+tests/test_ir.py::test_branch_if_must_reference_existing_nodes PASSED    [ 50%]
+tests/test_ir.py::test_timing_domains_are_distinguished PASSED           [ 51%]
+tests/test_ir.py::test_node_latencies_are_nonnegative PASSED             [ 52%]
+tests/test_ir.py::test_feedback_dominates_duration PASSED                [ 53%]
+tests/test_ir.py::test_ad9910_ftw_range_enforced PASSED                  [ 54%]
+tests/test_ir.py::test_all_node_types_have_device_class PASSED           [ 55%]
+tests/test_ir.py::test_device_class_registry_has_all_documented_devices PASSED [ 56%]
+tests/test_latency_budget.py::test_dual_isotope_feedback_dominates_electronic_minus_load PASSED [ 57%]
+tests/test_latency_budget.py::test_latency_budget_has_all_three_domains PASSED [ 58%]
+tests/test_latency_budget.py::test_per_node_ms_is_topologically_ordered PASSED [ 59%]
+tests/test_latency_budget.py::test_total_ms_equals_sum_of_domains PASSED [ 60%]
+tests/test_latency_budget.py::test_dominant_domain_for_feedback_heavy_graph PASSED [ 61%]
+tests/test_latency_budget.py::test_format_table_contains_dominant_marker PASSED [ 62%]
+tests/test_latency_budget.py::test_format_table_is_deterministic PASSED  [ 62%]
+tests/test_latency_budget.py::test_latency_budget_from_streams_matches_backend_ids PASSED [ 63%]
+tests/test_latency_budget.py::test_latency_budget_is_immutable PASSED    [ 64%]
+tests/test_latency_budget.py::test_empty_graph_has_zero_total PASSED     [ 65%]
+tests/test_nidaqmx_adapter.py::test_construct_without_nidaqmx_installed PASSED [ 66%]
+tests/test_nidaqmx_adapter.py::test_validate_support_ni_daq_only PASSED  [ 67%]
+tests/test_nidaqmx_adapter.py::test_emit_analog_ramp PASSED              [ 68%]
+tests/test_nidaqmx_adapter.py::test_emit_ttl_window PASSED               [ 69%]
+tests/test_nidaqmx_adapter.py::test_emit_raises_on_unsupported_node PASSED [ 70%]
+tests/test_nidaqmx_adapter.py::test_latency_profile_returns_electronic_ns PASSED [ 71%]
+tests/test_nidaqmx_adapter.py::test_emit_load_atoms_and_reset_and_branchif PASSED [ 72%]
+tests/test_openqasm3.py::test_header_is_emitted PASSED                   [ 73%]
+tests/test_openqasm3.py::test_minimal_graph_renders_header_and_qubit_decl PASSED [ 74%]
+tests/test_openqasm3.py::test_dual_isotope_demo_exports_expected_constructs PASSED [ 75%]
+tests/test_openqasm3.py::test_feedback_domain_nodes_become_pragma_comments PASSED [ 75%]
+tests/test_openqasm3.py::test_pulse_level_nodes_become_pragma_comments PASSED [ 76%]
+tests/test_openqasm3.py::test_optical_domain_node_becomes_pragma_comment PASSED [ 77%]
+tests/test_openqasm3.py::test_reset_without_species_resets_all_registers PASSED [ 78%]
+tests/test_openqasm3.py::test_calibration_step_emits_cal_comment PASSED  [ 79%]
+tests/test_openqasm3.py::test_output_is_pure_string_no_io PASSED         [ 80%]
+tests/test_openqasm3.py::test_module_docstring_declares_non_runtime PASSED [ 81%]
+tests/test_optical_delay.py::test_validate_support_optical_delay_only PASSED [ 82%]
+tests/test_optical_delay.py::test_emit_move_stage_and_pulse_ready_marker PASSED [ 83%]
+tests/test_optical_delay.py::test_emit_pulse_ready_marker_tags_optical_domain PASSED [ 84%]
+tests/test_optical_delay.py::test_emit_rejects_out_of_range PASSED       [ 85%]
+tests/test_optical_delay.py::test_emit_rejects_unsupported_node PASSED   [ 86%]
+tests/test_optical_delay.py::test_latency_profile_zero_default PASSED    [ 87%]
+tests/test_optical_delay.py::test_stage_settle_profile_tracks_node PASSED [ 87%]
+tests/test_optical_delay.py::test_custom_envelope_accepted PASSED        [ 88%]
+tests/test_placeholder.py::test_import PASSED                            [ 89%]
+tests/test_pulser.py::test_to_pulser_sequence_returns_sequence PASSED    [ 90%]
+tests/test_pulser.py::test_register_atom_count_matches_load_atoms PASSED [ 91%]
+tests/test_pulser.py::test_optical_delay_translates_to_pulser_delay PASSED [ 92%]
+tests/test_pulser.py::test_missing_load_atoms_raises_value_error PASSED  [ 93%]
+tests/test_pulser.py::test_import_error_when_pulser_absent PASSED        [ 94%]
+tests/test_slm_mock.py::test_default_resolution_and_frame_rate PASSED    [ 95%]
+tests/test_slm_mock.py::test_validate_support_slm_only PASSED            [ 96%]
+tests/test_slm_mock.py::test_emit_calibration_uploads_phase_mask PASSED  [ 97%]
+tests/test_slm_mock.py::test_emit_rejects_non_slm_routine PASSED         [ 98%]
+tests/test_slm_mock.py::test_latency_profile_one_frame PASSED            [ 99%]
+tests/test_slm_mock.py::test_gerchberg_saxton_returns_complex_phase PASSED [100%]
+
+============================= slowest 10 durations =============================
+0.28s call     tests/test_examples.py::test_example_01_imports_and_runs
+
+(9 durations < 0.005s hidden.  Use -vv to show these durations.)
+============================= 108 passed in 0.45s ==============================
+
+============================================================
+ 4. RUFF LINT
+============================================================
+F401 [*] `numpy` imported but unused
+ --> examples/_viz_latency.py:7:17
+  |
+5 | matplotlib.use("Agg")
+6 | import matplotlib.pyplot as plt
+7 | import numpy as np
+  |                 ^^
+8 |
+9 | from yaqumo_shot_graph import ShotGraph, nodes
+  |
+help: Remove unused import: `numpy`
+
+Found 1 error.
+[*] 1 fixable with the `--fix` option.
+
+============================================================
+ 5. MYPY STRICT
+============================================================
+Success: no issues found in 20 source files
+
+============================================================
+ 6. DEMO 01 — timed run with full stdout
+============================================================
+[start: 12:07:09.043Z]
+Built shot graph: ShotGraph(nodes=9, edges=8)
+
+Per-backend command streams:
+         nidaqmx: 2 commands
+    camera_emccd: 3 commands
+          ad9910: 5 commands
+
+Latency budget — full shot (includes 200 ms MOT load):
+Timing domain    |   Total ms |    % shot
+-----------------+------------+----------
+electronic       |     200.02 |     88.1%  <- DOMINANT
+optical          |       0.00 |      0.0%
+feedback         |      27.10 |     11.9%
+-----------------+------------+----------
+Total shot cycle |     227.12 |    100.0%
+
+Strip the one-shot MOT load and the inner loop tells a different story — feedback dominates by three orders of magnitude:
+
+Latency budget — inner gate-path-shot loop:
+Timing domain    |   Total ms |    % shot
+-----------------+------------+----------
+electronic       |       0.02 |      0.1%
+optical          |       0.00 |      0.0%
+feedback         |      27.10 |     99.9%  <- DOMINANT (classical feedback loop)
+-----------------+------------+----------
+Total shot cycle |      27.12 |    100.0%
+
+Rearrangement feedback loop, n_sites=100, sqrt_t planner:
+Feedback stage                     |       ms
+-----------------------------------+---------
+image acquisition (EMCCD)          |   15.000
+classify (thresholding)            |    2.000
+path planning (sqrt_t)             |    1.000
+AOD update (40 moves)              |    0.040
+-----------------------------------+---------
+Total feedback loop                |   18.040
+  (n_sites=100, fill=0.60, alg=sqrt_t)
+
+Contrast: n_sites=1000, Hungarian O(N^2) planner:
+Feedback stage                     |       ms
+-----------------------------------+---------
+image acquisition (EMCCD)          |   15.000
+classify (thresholding)            |    2.000
+path planning (hungarian)          |  100.000
+AOD update (397 moves)             |    0.397
+-----------------------------------+---------
+Total feedback loop                |  117.397
+  (n_sites=1000, fill=0.60, alg=hungarian)
+
+OpenQASM 3 export (first 30 lines):
+  OPENQASM 3.0;
+  include "stdgates.inc";
+  // load: load 100 atoms of Yb171
+  qubit[100] q_yb171;
+  bit[100] c_yb171;
+  // FEEDBACK_DOMAIN: AcquireEMCCD acquire exposure_ms=5.0, dma_overhead_ms=5.0
+  // FEEDBACK_DOMAIN: ClassifyOccupancy classify threshold=0.5
+  // FEEDBACK_DOMAIN: AODMovePlan move_plan algorithm=sqrt_t
+  // PULSE_LEVEL: DDSSetProfile dds_profile ftw=1000000, asf=8000, profile_index=0
+  cz_yb171 q_yb171[0];
+  m = measure q_yb174[0];
+  if (m == 1) { // true_branch -> correction }
+  x_correction_yb171 q_yb171[0];
+
+Pulser export: Sequence with 100 qubits in register
+[end:   12:07:09.482Z]
+
+============================================================
+ 7. DEMO 02 — rearrangement scaling
+============================================================
+[start: 12:07:09.483Z]
+ n_sites |   hungarian_ms |    sqrt_t_ms
+---------+----------------+-------------
+      10 |          0.010 |        0.316
+      50 |          0.250 |        0.707
+     100 |          1.000 |        1.000
+     500 |         25.000 |        2.236
+    1000 |        100.000 |        3.162
+    5000 |       2500.000 |        7.071
+[end:   12:07:09.631Z]
+
+============================================================
+ 8. DETERMINISM PROOF — same seed → identical output
+============================================================
+run 1 hash: a691bf650ecbee6b
+run 2 hash: a691bf650ecbee6b
+DETERMINISM: OK — identical seed → identical output
+
+============================================================
+ 9. NON-HARDCODED PROOF — different seeds → different outputs
+============================================================
+seed=    42: n_moves= 200  aod_update_ms=0.2000  hash=772c62aa5662
+seed=   123: n_moves= 200  aod_update_ms=0.2000  hash=772c62aa5662
+seed=   999: n_moves= 191  aod_update_ms=0.1910  hash=afdc7b2a3ef8
+seed=  2024: n_moves= 186  aod_update_ms=0.1860  hash=b0636d59c971
+seed= 31337: n_moves= 188  aod_update_ms=0.1880  hash=865b3fae33a7
+unique hashes: 4 / 5 seeds
+
+============================================================
+10. DOCS/IMAGES — committed PNG fingerprints
+============================================================
+ae5dab4d605ac5ecbcd335022503d33fa11efdfb89eb2cee9ddc0721b57abc3f  docs/images/latency_budget.png
+35b0e3b3a6e6af6e61c8e44b985eef562b63898257b390e9b43c95331134650d  docs/images/scaling.png
+48134544782961c76f0889c057a9b1c3246d3a6d380e35de9eea2d540c339c04  docs/images/shot_graph.png
+total 400
+drwxrwxr-x 2 neme neme   4096 Apr 20 20:54 .
+drwxrwxr-x 3 neme neme   4096 Apr 20 20:54 ..
+-rw-rw-r-- 1 neme neme  78799 Apr 20 20:56 latency_budget.png
+-rw-rw-r-- 1 neme neme 153421 Apr 20 20:56 scaling.png
+-rw-rw-r-- 1 neme neme 162167 Apr 20 20:56 shot_graph.png
+
+============================================================
+11. FULL DEMO STDOUT CAPTURED (repeated for archival)
+============================================================
+Built shot graph: ShotGraph(nodes=9, edges=8)
+
+Per-backend command streams:
+         nidaqmx: 2 commands
+    camera_emccd: 3 commands
+          ad9910: 5 commands
+
+Latency budget — full shot (includes 200 ms MOT load):
+Timing domain    |   Total ms |    % shot
+-----------------+------------+----------
+electronic       |     200.02 |     88.1%  <- DOMINANT
+optical          |       0.00 |      0.0%
+feedback         |      27.10 |     11.9%
+-----------------+------------+----------
+Total shot cycle |     227.12 |    100.0%
+
+Strip the one-shot MOT load and the inner loop tells a different story — feedback dominates by three orders of magnitude:
+
+Latency budget — inner gate-path-shot loop:
+Timing domain    |   Total ms |    % shot
+-----------------+------------+----------
+electronic       |       0.02 |      0.1%
+optical          |       0.00 |      0.0%
+feedback         |      27.10 |     99.9%  <- DOMINANT (classical feedback loop)
+-----------------+------------+----------
+Total shot cycle |      27.12 |    100.0%
+
+Rearrangement feedback loop, n_sites=100, sqrt_t planner:
+Feedback stage                     |       ms
+-----------------------------------+---------
+image acquisition (EMCCD)          |   15.000
+classify (thresholding)            |    2.000
+path planning (sqrt_t)             |    1.000
+AOD update (40 moves)              |    0.040
+-----------------------------------+---------
+Total feedback loop                |   18.040
+  (n_sites=100, fill=0.60, alg=sqrt_t)
+
+Contrast: n_sites=1000, Hungarian O(N^2) planner:
+Feedback stage                     |       ms
+-----------------------------------+---------
+image acquisition (EMCCD)          |   15.000
+classify (thresholding)            |    2.000
+path planning (hungarian)          |  100.000
+AOD update (397 moves)             |    0.397
+-----------------------------------+---------
+Total feedback loop                |  117.397
+  (n_sites=1000, fill=0.60, alg=hungarian)
+
+OpenQASM 3 export (first 30 lines):
+  OPENQASM 3.0;
+  include "stdgates.inc";
+  // load: load 100 atoms of Yb171
+  qubit[100] q_yb171;
+  bit[100] c_yb171;
+  // FEEDBACK_DOMAIN: AcquireEMCCD acquire exposure_ms=5.0, dma_overhead_ms=5.0
+  // FEEDBACK_DOMAIN: ClassifyOccupancy classify threshold=0.5
+  // FEEDBACK_DOMAIN: AODMovePlan move_plan algorithm=sqrt_t
+  // PULSE_LEVEL: DDSSetProfile dds_profile ftw=1000000, asf=8000, profile_index=0
+  cz_yb171 q_yb171[0];
+  m = measure q_yb174[0];
+  if (m == 1) { // true_branch -> correction }
+  x_correction_yb171 q_yb171[0];
+
+Pulser export: Sequence with 100 qubits in register
+
+============================================================
+ END OF PROOF BUNDLE
+============================================================
